@@ -1,0 +1,24 @@
+h1, h2 {
+    padding-top: 20px;
+}
+
+#welcome-section {
+    background-color:#A4CEF7;  /*#353DB2*/
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+#quoteSection {
+    background-color:#b3d9ff;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+.row {
+    padding-top: 20px;
+}
+
+li {
+    padding-top: 10px;
+}
+
