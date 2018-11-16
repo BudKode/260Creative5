@@ -31,6 +31,7 @@ angular.module('task', [])
       $http.post('/task', newtask).success(function(data){
         $scope.tasks.push(data);
       });
+      $scope.getAll();
     };
     $scope.toggle = function(task) {
       console.log(task);
@@ -57,7 +58,7 @@ angular.module('task', [])
         for(var task in data) {
           var t = data[task];
           var day = new Date(t.Date);
-          switch(day.getDay()+1) {
+          switch((day.getDay()+1)%7) {
             case (today+6)%7:
               $scope.overdue_tasks.push(t);
               break;
@@ -71,6 +72,7 @@ angular.module('task', [])
               $scope.two_tasks.push(t);
               break;
             case (today+3)%7:
+              console.log(t);
               $scope.three_tasks.push(t);
               break;
             case (today+4)%7:
@@ -80,6 +82,7 @@ angular.module('task', [])
               console.log(t);
           } 
         } 
+        console.log($scope.three_tasks);
       });
     };
     $scope.getAll();

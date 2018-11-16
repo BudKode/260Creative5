@@ -1,0 +1,248 @@
+nohup: ignoring input
+WARNING: The `useMongoClient` option is no longer necessary in mongoose 5.x, please remove it.
+    at handleUseMongoClient (/var/www/html/Creative5/golist/node_modules/mongoose/lib/connection.js:604:17)
+    at NativeConnection.Connection.openUri (/var/www/html/Creative5/golist/node_modules/mongoose/lib/connection.js:480:7)
+    at Mongoose.connect (/var/www/html/Creative5/golist/node_modules/mongoose/lib/index.js:260:15)
+    at Object.<anonymous> (/var/www/html/Creative5/golist/app.js:7:10)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+    at Function.Module._load (module.js:445:3)
+    at Module.require (module.js:504:17)
+    at require (internal/module.js:20:19)
+    at Object.<anonymous> (/var/www/html/Creative5/golist/bin/www:7:11)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+(node:28167) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+[0mGET / [36m304 [0m5.298 ms - -[0m
+[0mGET /stylesheets/main.css [36m304 [0m2.041 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m2.670 ms - -[0m
+In the SCHEDULE route?
+made it here
+[ { _id: 5bec5b222f6b7c1b75669c17,
+    Task: 'RELA122 Exam',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: true,
+    __v: 0 },
+  { _id: 5bee4de06324cb6dce829a6f,
+    Task: 'Vote',
+    Date: 2018-11-14T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e266324cb6dce829a70,
+    Task: 'Vote 100% for me!',
+    Date: 2018-11-16T00:00:00.000Z,
+    Complete: false,
+    __v: 0 } ]
+[0mGET /schedule [36m304 [0m31.394 ms - -[0m
+POST task route
+{ Task: 'Study for Midterm',
+  Date: '2018-11-17',
+  Complete: false }
+{ _id: 5bee4e586255246e0780bfe4,
+  Task: 'Study for Midterm',
+  Date: 2018-11-17T00:00:00.000Z,
+  Complete: false }
+{ _id: 5bee4e586255246e0780bfe4,
+  Task: 'Study for Midterm',
+  Date: 2018-11-17T00:00:00.000Z,
+  Complete: false,
+  __v: 0 }
+[0mPOST /task [32m200 [0m39.338 ms - 2[0m
+In the SCHEDULE route?
+made it here
+[ { _id: 5bec5b222f6b7c1b75669c17,
+    Task: 'RELA122 Exam',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: true,
+    __v: 0 },
+  { _id: 5bee4de06324cb6dce829a6f,
+    Task: 'Vote',
+    Date: 2018-11-14T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e266324cb6dce829a70,
+    Task: 'Vote 100% for me!',
+    Date: 2018-11-16T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e586255246e0780bfe4,
+    Task: 'Study for Midterm',
+    Date: 2018-11-17T00:00:00.000Z,
+    Complete: false,
+    __v: 0 } ]
+[0mGET /schedule [32m200 [0m17.764 ms - 466[0m
+POST task route
+{ Task: 'Prepare Lesson', Date: '2018-11-18', Complete: false }
+{ _id: 5bee4e886255246e0780bfe5,
+  Task: 'Prepare Lesson',
+  Date: 2018-11-18T00:00:00.000Z,
+  Complete: false }
+{ _id: 5bee4e886255246e0780bfe5,
+  Task: 'Prepare Lesson',
+  Date: 2018-11-18T00:00:00.000Z,
+  Complete: false,
+  __v: 0 }
+[0mPOST /task [32m200 [0m19.075 ms - 2[0m
+In the SCHEDULE route?
+made it here
+[ { _id: 5bec5b222f6b7c1b75669c17,
+    Task: 'RELA122 Exam',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: true,
+    __v: 0 },
+  { _id: 5bee4de06324cb6dce829a6f,
+    Task: 'Vote',
+    Date: 2018-11-14T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e266324cb6dce829a70,
+    Task: 'Vote 100% for me!',
+    Date: 2018-11-16T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e586255246e0780bfe4,
+    Task: 'Study for Midterm',
+    Date: 2018-11-17T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e886255246e0780bfe5,
+    Task: 'Prepare Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 } ]
+[0mGET /schedule [32m200 [0m27.780 ms - 584[0m
+POST task route
+{ Task: 'Give Lesson', Date: '2018-11-18', Complete: false }
+{ _id: 5bee4e986255246e0780bfe6,
+  Task: 'Give Lesson',
+  Date: 2018-11-18T00:00:00.000Z,
+  Complete: false }
+{ _id: 5bee4e986255246e0780bfe6,
+  Task: 'Give Lesson',
+  Date: 2018-11-18T00:00:00.000Z,
+  Complete: false,
+  __v: 0 }
+[0mPOST /task [32m200 [0m3.480 ms - 2[0m
+In the SCHEDULE route?
+made it here
+[ { _id: 5bec5b222f6b7c1b75669c17,
+    Task: 'RELA122 Exam',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: true,
+    __v: 0 },
+  { _id: 5bee4de06324cb6dce829a6f,
+    Task: 'Vote',
+    Date: 2018-11-14T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e266324cb6dce829a70,
+    Task: 'Vote 100% for me!',
+    Date: 2018-11-16T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e586255246e0780bfe4,
+    Task: 'Study for Midterm',
+    Date: 2018-11-17T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e886255246e0780bfe5,
+    Task: 'Prepare Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e986255246e0780bfe6,
+    Task: 'Give Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 } ]
+[0mGET /schedule [32m200 [0m4.620 ms - 699[0m
+[0mGET / [36m304 [0m1.024 ms - -[0m
+[0mGET /stylesheets/main.css [36m304 [0m0.543 ms - -[0m
+[0mGET /javascripts/app.js [36m304 [0m0.708 ms - -[0m
+In the SCHEDULE route?
+made it here
+[ { _id: 5bec5b222f6b7c1b75669c17,
+    Task: 'RELA122 Exam',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: true,
+    __v: 0 },
+  { _id: 5bee4de06324cb6dce829a6f,
+    Task: 'Vote',
+    Date: 2018-11-14T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e266324cb6dce829a70,
+    Task: 'Vote 100% for me!',
+    Date: 2018-11-16T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e586255246e0780bfe4,
+    Task: 'Study for Midterm',
+    Date: 2018-11-17T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e886255246e0780bfe5,
+    Task: 'Prepare Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e986255246e0780bfe6,
+    Task: 'Give Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 } ]
+[0mGET /schedule [36m304 [0m11.073 ms - -[0m
+POST task route
+{ Task: 'Uh oh', Date: '2018-11-19', Complete: false }
+{ _id: 5bee4eaa6255246e0780bfe7,
+  Task: 'Uh oh',
+  Date: 2018-11-19T00:00:00.000Z,
+  Complete: false }
+{ _id: 5bee4eaa6255246e0780bfe7,
+  Task: 'Uh oh',
+  Date: 2018-11-19T00:00:00.000Z,
+  Complete: false,
+  __v: 0 }
+[0mPOST /task [32m200 [0m3.335 ms - 2[0m
+In the SCHEDULE route?
+made it here
+[ { _id: 5bec5b222f6b7c1b75669c17,
+    Task: 'RELA122 Exam',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: true,
+    __v: 0 },
+  { _id: 5bee4de06324cb6dce829a6f,
+    Task: 'Vote',
+    Date: 2018-11-14T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e266324cb6dce829a70,
+    Task: 'Vote 100% for me!',
+    Date: 2018-11-16T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e586255246e0780bfe4,
+    Task: 'Study for Midterm',
+    Date: 2018-11-17T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e886255246e0780bfe5,
+    Task: 'Prepare Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4e986255246e0780bfe6,
+    Task: 'Give Lesson',
+    Date: 2018-11-18T00:00:00.000Z,
+    Complete: false,
+    __v: 0 },
+  { _id: 5bee4eaa6255246e0780bfe7,
+    Task: 'Uh oh',
+    Date: 2018-11-19T00:00:00.000Z,
+    Complete: false,
+    __v: 0 } ]
+[0mGET /schedule [32m200 [0m6.635 ms - 808[0m

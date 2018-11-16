@@ -77,7 +77,7 @@
                     <div ng-repeat="task in overdue_tasks">
                         <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
                             {{task.Task}}
-                        <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                        <input type="checkbox" ng-model="task.Complete" ng-click="delete(task)">
                     </div>
                 </div>
             </div>
