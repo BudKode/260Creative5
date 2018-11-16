@@ -2,20 +2,48 @@ h1, h2 {
     padding-top: 20px;
 }
 
-#welcome-section {
-    background-color:#A4CEF7;  /*#353DB2*/
-    padding-top: 50px;
-    padding-bottom: 150px;
+#quoteSection {
+    background-color:#66b3ff;
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
 
-#quoteSection {
-    background-color:#b3d9ff;
+#quoteSection h3 {
+    background-color:#0080ff;
+    padding:5px;
+    padding-right: 65px;
+}
+
+#overdueSection {
+    text-align: center;
+    margin-top: 10px;
+    background-color:#ff4d4d;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.fas {
+    font-size: 10px;
+}
+
+#overdueSection h3 {
+    text-align: center;
+    padding:5px;
+    padding-right: 80px;
+    background-color:#e60000;
+}
+
+#addSection {
+    float:left;
+}
+
+#scheduleSection {
     padding-top: 50px;
-    padding-bottom: 150px;
+    padding-bottom: 50px;
 }
 
 .row {
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 li {

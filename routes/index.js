@@ -1,51 +1,37 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var Task = mongoose.model('Task');
 
-/* Set up mongoose in order to connect to mongo database */
-var mongoose = require('mongoose'); //Adds mongoose as a usable dependency
-
-mongoose.connect('mongodb://localhost/taskDB', { useMongoClient: true }); //Connects to a mongo database called "commentDB"
-
-var taskSchema = mongoose.Schema({ //Defines the Schema for this database
-Task: String,
-Date: Date,
-Complete: Boolean
-});
-
-var Task = mongoose.model('Task', taskSchema); //Makes an object from that schema as a model
-
-var db = mongoose.connection; //Saves the connection as a variable to use
-db.on('error', console.error.bind(console, 'connection error:')); //Checks for connection errors
-db.once('open', function() { //Lets us know when we're connected
-console.log('Connected');
-});
-
-/* GET comments from database */
-router.get('/task', function(req, res, next) {
+/* GET tasks from database */
+router.get('/tasks', function(req, res, next) {
 console.log("In the GET route?");
 Task.find(function(err,taskList) { //Calls the find() method on your database
   if (err) return console.error(err); //If there's an error, print it out
   else {
     console.log(taskList); //Otherwise console log the tasks you found
     res.json(taskList); //Then send the tasks
-    
   }
 })
 });
 
-// /* GET user comments from database */
-// router.post('/user', function(req, res, next) {
-// console.log("In the USER route?");
-// console.log(req.body);
-// Comment.find(req.body, function(err,commentList) { //Calls the find() method on your database
-//   if (err) return console.error(err); //If there's an error, print it out
-//   else {
-//     console.log(commentList); //Otherwise console log the comments you found
-//     res.json(commentList); //Then send the comments
-    
-//   }
-// })
-// });
+/* GET immediate schedule from database */
+router.get('/schedule', function(req, res, next) {
+console.log("In the SCHEDULE route?");
+var start = new Date().setHours(0,0,0,0);
+var end = new Date();
+end = end.setDate(end.getDate() + 5);
+var yesterday = new Date();
+yesterday = yesterday.setDate(yesterday.getDate() - 3);
+console.log("made it here");
+Task.find({"Date": {"$gte": yesterday, "$lt": end}}, function(err,taskList) {
+  if (err) return console.error(err); //If there's an error, print it out
+  else {
+    console.log(taskList); //Otherwise console log the comments you found
+    res.json(taskList); //Then send the comments
+  }
+});
+});
 
 router.post('/task', function(req, res, next) {
     console.log("POST task route"); //[1]
@@ -59,16 +45,28 @@ router.post('/task', function(req, res, next) {
     });
 });
 
-// /* REMOVE comments from database */
-// router.post('/delete', function(req, res, next) {
-// console.log("In the REMOVE route?");
-// Comment.deleteMany({}, function(err,result) {
-//   if (err) return console.error(err); //If there's an error, print it out
-//   else {
-//     console.log(result); //Otherwise console log the comments you found
-//     res.sendStatus(200);
-//   }
-// })
-// })
+router.param('task', function(req, res, next, id) {
+  var query = Task.findById(id);
+  query.exec(function (err, task){
+    if (err) { return next(err); }
+    if (!task) { return next(new Error("can't find task")); }
+    req.task = task;
+    return next();
+  });
+});
+
+router.put('/tasks/:task/toggle', function(req, res, next) {
+  console.log("in Toggle");
+  req.task.toggle(function(err, task){
+    if (err) { return next(err); }
+    res.json(task);
+  });
+});
+
+router.delete('/tasks/:task', function(req, res) {
+  console.log("in Delete");
+  req.task.remove();
+  res.sendStatus(200);
+});
 
 module.exports = router;

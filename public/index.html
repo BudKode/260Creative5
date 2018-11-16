@@ -2,54 +2,84 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
         <title>GoList!</title>
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="javascripts/todos.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+        <script src="javascripts/app.js"></script>
     </head>
 
-    <body>
+    <body ng-app="task" ng-controller="MainCtrl">
         <nav id='header-bar' class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">GoList</a>
+            <a class="navbar-brand" style="strong" href="#">GoList!</a>
+            <div id="addSection" class="container-fluid text-left">
+                <form ng-submit="addTask()" style="margin-top30px;">
+                    <input type="text" ng-model="formContent" placeholder="  Add a new task"></input>
+                    <input type="date" ng-model="formDate"></input>
+                    <button type="submit">Add Task</button>
+                </form>
+            </div> 
         </nav>
         <div id="goListSection" class="row container-fluid">
-            <div id="todos" class='col-9'>
-                <div id="welcomeSection" class='container-fluid'>
-                    <h5>Add a Task</h5>
-                </div>
-                <div id="addSection" class="container-fluid">
-                    <form id="goTaskForm" action="">
-                        <label for="task">Task: </label><input type="text" id="task">
-                        <label for="duedate">Due: </label><input type="date" id="duedate">
-                    </form>
-                    <button id="postTask">Post Task</button>
-                    <div id="done"></div>
-                    <div id="json"></div>
-                </div>
-                <div class='row'>
-                    <div id="today" class='col-2'>
-                        <button id="getTasks">Get Tasks</button>
-                        <div id="comments"></div>
+            <div id="todos" class='col-10'>
+                <div id="scheduleSection" class='row'>
+                    <div class='col-2 text-center'>
+                        <h4>{{zero_day}}</h4>
+                        <div ng-repeat="task in zero_tasks">
+                            <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
+                                {{task.Task}}
+                            <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                        </div>
                     </div>
-                    <div class='col-2'>
-                        <button id="getTomorrowTasks">Get Tasks</button>
+                    <div class='col-2 text-center'>
+                        <h4>{{one_day}}</h4>
+                        <div ng-repeat="task in one_tasks">
+                            <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
+                                {{task.Task}}
+                            <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                        </div>
                     </div>
-                    <div class='col-2'>
-                        
+                    <div class='col-2 text-center'>
+                        <h4>{{two_day}}</h4>
+                        <div ng-repeat="task in two_tasks">
+                            <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
+                                {{task.Task}}
+                            <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                        </div>
                     </div>
-                    <div class='col-2'>
-                        
+                    <div class='col-2 text-center'>
+                        <h4>{{three_day}}</h4>
+                        <div ng-repeat="task in three_tasks">
+                            <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
+                                {{task.Task}}
+                            <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                        </div>
                     </div>
-                    <div class='col-2'>
-                        
+                    <div class='col-2 text-center'>
+                        <h4>{{four_day}}</h4>
+                        <div ng-repeat="task in four_tasks">
+                            <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
+                                {{task.Task}}
+                            <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="quoteSection" class='col-3'>
-                <h3>Daily Quote</h3>
-                <p>This is the great reward of service, to live, far out and on, in the life of others; 
-                this is the mystery of Christ, - to give life's best for such high sake that it shall be found again unto life eternal.</p>
-                <h6>- Joshua Chamberlain</h6>
+            <div class='col-2 container-fluid'>
+                <div id="quoteSection" class="row container-fluid">
+                    <h3>Daily Quote</h3>
+                    <p>This is the great reward of service, to live, far out and on, in the life of others; 
+                    this is the mystery of Christ, - to give life's best for such high sake that it shall be found again unto life eternal.</p>
+                    <h6>- Joshua Chamberlain</h6>
+                </div>
+                <div id="overdueSection" class="row container-fluid text-center">
+                    <h3 class="text-center">Overdue</h3>
+                    <div ng-repeat="task in overdue_tasks">
+                        <span class="fas fa-trash-alt" ng-click="delete(task)"></span>
+                            {{task.Task}}
+                        <input type="checkbox" ng-model="task.Complete" ng-click="toggleComplete(task)">
+                    </div>
+                </div>
             </div>
         </div>
     </body>
